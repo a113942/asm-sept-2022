@@ -1,5 +1,12 @@
 <div>
   <button (click)="decrement()" class="btn btn-danger">-</button>
-  <span>{{ current }}</span>
+  <span>{{ current$ | async }}</span>
   <button (click)="increment()" class="btn btn-danger">+</button>
+</div>
+<div>
+  <app-counter-reset></app-counter-reset>
+</div>
+
+<div>
+  <app-count-by></app-count-by>
 </div>

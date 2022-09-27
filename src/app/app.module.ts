@@ -10,6 +10,7 @@ import { DashboardModule } from './features/dashboard/dashboard.module';
 import { ShoppingModule } from './features/shopping/shopping.module';
 import { StoreModule } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { EffectsModule } from "@ngrx/effects";
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
     CounterModule,
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument(),
+    EffectsModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent]

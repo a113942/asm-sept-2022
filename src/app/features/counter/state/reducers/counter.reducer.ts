@@ -1,22 +1,26 @@
 import { createReducer, on } from '@ngrx/store';
-import { CounterEvents } from '../counter.actions';
+import { CountByEvents, CountByOptions, CounterEvents } from '../counter.actions';
 export interface CountState {
   current: number;
+  by: CountByOptions;
 }
 
 const initialState: CountState = {
   current: 0,
+  by: 1
 };
 
 export const reducer = createReducer(
   initialState,
+  on(CountByEvents.set, (s, a) => ({...s, by: a.payload.by})),
   on(
     CounterEvents.incremented,
     (currentState: CountState, action): CountState => {
       return {
-        current: currentState.current + 1,
+        ...currentState, current: currentState.current + currentState.by,
       };
     }
   ),
-  on(CounterEvents.decremented, (s, a) => ({ current: s.current - 1 }))
+  on(CounterEvents.decremented, (s, a) => ({ ...s, current: s.current - s.by })),
+  on(CounterEvents.reset, () => initialState),
 );
