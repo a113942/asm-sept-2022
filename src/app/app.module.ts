@@ -5,8 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrandingComponent } from './components/branding/branding.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { CounterModule } from './features/counter/counter.module';
 import { DashboardModule } from './features/dashboard/dashboard.module';
 import { ShoppingModule } from './features/shopping/shopping.module';
+import { StoreModule } from "@ngrx/store";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { ShoppingModule } from './features/shopping/shopping.module';
     BrowserModule,
     AppRoutingModule,
     DashboardModule,
-    ShoppingModule
+    ShoppingModule,
+    CounterModule,
+    StoreModule.forRoot({}),
+    StoreDevtoolsModule.instrument(),
   ],
   providers: [],
   bootstrap: [AppComponent]
