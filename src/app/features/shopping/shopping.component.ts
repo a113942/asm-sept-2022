@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingListItem } from './models';
+import { ShoppingDataService } from './services/shopping-data.service';
 
 @Component({
   selector: 'app-shopping',
@@ -7,18 +8,15 @@ import { ShoppingListItem } from './models';
   styleUrls: ['./shopping.component.css']
 })
 export class ShoppingComponent {
-  shoppingList: ShoppingListItem[] = [
-    { description: 'Hairspray', purchased: false },
-    { description: 'Beer', purchased: true },
-  ];
-  constructor() {}
+  shoppingList = this.service.getData();
+  constructor(private service:ShoppingDataService) {}
 
   addItemToList(item: {description: string }) {
     const itemToAdd = {
       ...item,
       purchased: false,
     };
-    this.shoppingList = [itemToAdd, ...this.shoppingList];
+    this.service.addItem(itemToAdd);
   }
 
 }

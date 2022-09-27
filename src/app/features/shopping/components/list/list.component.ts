@@ -7,7 +7,7 @@ import { ShoppingListItem } from '../../models';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent {
-  @Input() model: ShoppingListItem[] = [];
+  @Input() model: ShoppingListItem[] | null = [];
 
   constructor() { }
 
