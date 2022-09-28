@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { CounterComponent } from './features/counter/counter.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { ShoppingComponent } from './features/shopping/shopping.component';
@@ -18,13 +18,20 @@ const routes: Routes = [
     component: CounterComponent,
   },
   {
+    path: 'playlists',
+    loadChildren: () =>
+      import('./features/playlists/playlists.module').then(
+        (m) => m.PlaylistsModule
+      ),
+  },
+  {
     path:'**',
     redirectTo: 'home',
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
