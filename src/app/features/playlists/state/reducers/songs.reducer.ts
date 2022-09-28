@@ -16,5 +16,6 @@ export const adapter = createEntityAdapter<SongEntity>();
 const initialState = adapter.getInitialState();
 
 export const reducer = createReducer(initialState,
+  on(SongDocuments.song, (s, a) => adapter.addOne(a.payload, s)),
   on(SongDocuments.songs, (s,a) => adapter.setMany(a.payload, s))
 );

@@ -10,6 +10,7 @@ import { FEATURENAME, reducers } from './state';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from "@angular/common/http";
 import { SongEffects } from './state/effects/songs.effects';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -47,6 +48,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     HttpClientModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature(FEATURENAME, reducers),
     EffectsModule.forFeature([SongEffects]),
