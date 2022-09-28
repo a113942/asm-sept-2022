@@ -6,5 +6,7 @@ export interface PlaylistItemModel{
 }
 
 export interface PlaylistCreateModel{
-  
+  title: string;
+  artist: string;
+  album?: string;
 }

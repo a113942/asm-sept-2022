@@ -7,7 +7,7 @@ services:
     ports:
       - 1433:1433
   api:
-    image: jeffrygonzalez/songs-api:v0.1
+    image: jeffrygonzalez/songs-api:v0.2
     ports:
       - 1337:80
     environment:

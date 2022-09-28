@@ -1,5 +1,6 @@
 <div *ngIf="songs$ | async as songs">
   <div *ngIf="songs.length > 0" data-test-id="song-list">
+    <app-list-sorter></app-list-sorter>
     <div *ngFor="let song of songs" class="card">
       <div class="card-header">{{ song.title }}</div>
       <div class="card-body">

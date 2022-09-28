@@ -11,6 +11,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from "@angular/common/http";
 import { SongEffects } from './state/effects/songs.effects';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ErrorDisplayComponent } from './components/error-display/error-display.component';
+import { ListSorterComponent } from './components/list-sorter/list-sorter.component';
 
 const routes: Routes = [
   {
@@ -43,7 +45,9 @@ const routes: Routes = [
     PlaylistsComponent,
     OverviewComponent,
     SongListComponent,
-    SongEntryComponent
+    SongEntryComponent,
+    ErrorDisplayComponent,
+    ListSorterComponent
   ],
   imports: [
     CommonModule,

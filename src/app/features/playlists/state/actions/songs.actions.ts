@@ -11,6 +11,9 @@ export const SongEvents = createActionGroup({
   source: 'Song Events',
   events: {
     added: props<{ payload: PlaylistCreateModel }>(),
+    failed: props<{
+      payload: { song: PlaylistCreateModel; message: string };
+    }>(),
   },
 });
 
